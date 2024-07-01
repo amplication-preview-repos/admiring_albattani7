@@ -1,0 +1,24 @@
+import { ArgsType, Field } from "@nestjs/graphql";
+import { ApiProperty } from "@nestjs/swagger";
+import { Type } from "class-transformer";
+
+@ArgsType()
+class CompareCVsInput {
+    @Field(() => [String])
+    @ApiProperty({
+        required: true,
+        type: () => [String]
+    })
+    @Type(() => String)
+    resumes!: string;
+
+    @Field(() => [String])
+    @ApiProperty({
+        required: true,
+        type: () => [String]
+    })
+    @Type(() => String)
+    questions!: string;
+}
+
+export { CompareCVsInput as CompareCVsInput };
